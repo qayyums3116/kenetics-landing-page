@@ -75,6 +75,15 @@
     scroll-behavior: smooth;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Smooth scroll padding for fixed header */
+  section {
+    scroll-margin-top: 80px;
+  }
+
   /* Hero section now has purple gradient background */
   #hero {
     /* Background is now handled directly in the component */
@@ -239,6 +248,294 @@
 
   .animate-slide-in-right {
     animation: slideInFromRight 0.8s ease-out forwards;
+  }
+
+  /* Enhanced scroll animations */
+  .scroll-fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .scroll-fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .scroll-scale-in {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Bubble/Floating Animations */
+  @keyframes bubbleFloat {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-5px);
+    }
+    75% {
+      transform: translateY(-15px) translateX(8px);
+    }
+  }
+
+  @keyframes bubbleFloatSlow {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    33% {
+      transform: translateY(-15px) translateX(-8px);
+    }
+    66% {
+      transform: translateY(-8px) translateX(12px);
+    }
+  }
+
+  @keyframes bubbleFloatFast {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    20% {
+      transform: translateY(-25px) translateX(15px);
+    }
+    40% {
+      transform: translateY(-12px) translateX(-10px);
+    }
+    60% {
+      transform: translateY(-20px) translateX(8px);
+    }
+    80% {
+      transform: translateY(-5px) translateX(-12px);
+    }
+  }
+
+  .bubble-float {
+    animation: bubbleFloat 6s ease-in-out infinite;
+  }
+
+  .bubble-float-slow {
+    animation: bubbleFloatSlow 8s ease-in-out infinite;
+  }
+
+  .bubble-float-fast {
+    animation: bubbleFloatFast 4s ease-in-out infinite;
+  }
+
+  /* Floating background bubbles - Enhanced Balloon Style */
+  .floating-bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, 
+      hsl(var(--kenetics-primary) / 0.15), 
+      hsl(var(--kenetics-primary) / 0.08),
+      hsl(var(--kenetics-primary) / 0.12));
+    pointer-events: none;
+    z-index: 0;
+    box-shadow: 0 8px 32px hsl(var(--kenetics-primary) / 0.2),
+                inset 0 -10px 20px hsl(var(--kenetics-primary) / 0.1);
+  }
+
+  .floating-bubble::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    filter: blur(8px);
+  }
+
+  .floating-bubble-1 {
+    width: 250px;
+    height: 250px;
+    top: 10%;
+    left: 5%;
+    animation: bubbleFloatSlow 12s ease-in-out infinite;
+  }
+
+  .floating-bubble-2 {
+    width: 180px;
+    height: 180px;
+    top: 60%;
+    right: 10%;
+    animation: bubbleFloat 10s ease-in-out infinite;
+    animation-delay: -2s;
+  }
+
+  .floating-bubble-3 {
+    width: 140px;
+    height: 140px;
+    bottom: 20%;
+    left: 15%;
+    animation: bubbleFloatFast 8s ease-in-out infinite;
+    animation-delay: -4s;
+  }
+
+  .floating-bubble-4 {
+    width: 160px;
+    height: 160px;
+    top: 30%;
+    right: 20%;
+    animation: bubbleFloatSlow 14s ease-in-out infinite;
+    animation-delay: -6s;
+  }
+
+  .floating-bubble-5 {
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    animation: bubbleFloat 9s ease-in-out infinite;
+    animation-delay: -3s;
+  }
+
+  .floating-bubble-6 {
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    right: 5%;
+    animation: bubbleFloatSlow 11s ease-in-out infinite;
+    animation-delay: -5s;
+  }
+
+  /* Animated Floating Balloons */
+  .balloon-bubble {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+    background: linear-gradient(135deg, 
+      hsl(var(--kenetics-primary) / 0.2), 
+      hsl(var(--kenetics-primary) / 0.1));
+    box-shadow: 0 4px 20px hsl(var(--kenetics-primary) / 0.15);
+  }
+
+  .balloon-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, 
+      hsl(var(--kenetics-primary) / 0.3), 
+      transparent);
+  }
+
+  @keyframes balloonFloat {
+    0% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translateY(-30px) translateX(15px) scale(1.05);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-20px) translateX(-10px) scale(0.95);
+      opacity: 0.65;
+    }
+    75% {
+      transform: translateY(-35px) translateX(8px) scale(1.02);
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(0) translateX(0) scale(1);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes balloonRise {
+    0% {
+      transform: translateY(100vh) translateX(0) scale(0.8);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100px) translateX(50px) scale(1.2);
+      opacity: 0;
+    }
+  }
+
+  .balloon-1 {
+    width: 80px;
+    height: 80px;
+    left: 10%;
+    animation: balloonRise 20s linear infinite;
+    animation-delay: 0s;
+  }
+
+  .balloon-2 {
+    width: 60px;
+    height: 60px;
+    left: 30%;
+    animation: balloonRise 25s linear infinite;
+    animation-delay: -5s;
+  }
+
+  .balloon-3 {
+    width: 100px;
+    height: 100px;
+    left: 50%;
+    animation: balloonRise 22s linear infinite;
+    animation-delay: -10s;
+  }
+
+  .balloon-4 {
+    width: 70px;
+    height: 70px;
+    left: 70%;
+    animation: balloonRise 28s linear infinite;
+    animation-delay: -15s;
+  }
+
+  .balloon-5 {
+    width: 90px;
+    height: 90px;
+    left: 85%;
+    animation: balloonRise 24s linear infinite;
+    animation-delay: -8s;
   }
 
   .delay-100 {

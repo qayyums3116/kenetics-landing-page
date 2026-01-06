@@ -63,35 +63,51 @@ const TherapySection = () => {
   ];
 
   return (
-    <section id="therapy" className="py-20" style={{ backgroundColor: '#E7FF6E' }}>
-      <div className="container mx-auto px-4">
+    <section id="therapy" className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* Floating Background Bubbles */}
+      <div className="floating-bubble floating-bubble-3"></div>
+      <div className="floating-bubble floating-bubble-4"></div>
+      <div className="floating-bubble floating-bubble-6"></div>
+      
+      {/* Rising Balloon Bubbles */}
+      <div className="balloon-bubble balloon-1"></div>
+      <div className="balloon-bubble balloon-3"></div>
+      <div className="balloon-bubble balloon-5"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className={`text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            Choose Your Therapy
+            Improve therapy outcomes in every department
           </h2>
-          <p className={`text-lg text-gray-600 max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
-            Comprehensive therapy options tailored to your specific needs and rehabilitation goals.
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
+            Comprehensive therapy options tailored to your specific needs and rehabilitation goals across all care settings.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {therapyOptions.map((option, index) => (
             <div
               key={index}
-              className={`bg-white p-8 rounded-2xl hover:bg-[hsl(var(--kenetics-primary))] hover:text-black transition-all duration-300 hover:-translate-y-2 hover:shadow-xl group cursor-pointer ${
+              className={`bg-white p-8 rounded-xl border border-gray-200 hover:border-[hsl(var(--kenetics-primary))] hover:shadow-lg transition-all duration-300 bubble-float ${
                 isVisible ? `animate-fade-in-up ${option.delay}` : 'opacity-0'
               }`}
+              style={{ 
+                animationDelay: `${index * 0.3}s`,
+                animationDuration: `${5 + index * 0.3}s`
+              }}
             >
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-[hsl(var(--kenetics-primary))] rounded-full mb-6 group-hover:bg-black group-hover:text-[hsl(var(--kenetics-primary))] transition-all duration-300 group-hover:scale-110">
-                  <option.icon size={32} />
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-[hsl(var(--kenetics-primary))] rounded-lg flex items-center justify-center">
+                  <option.icon size={24} className="text-black" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-[hsl(var(--kenetics-dark))] group-hover:text-black transition-colors">
-                  {option.title}
-                </h3>
-                <p className="text-gray-600 group-hover:text-black transition-colors leading-relaxed">
-                  {option.description}
-                </p>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-[hsl(var(--kenetics-dark))]">
+                    {option.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {option.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

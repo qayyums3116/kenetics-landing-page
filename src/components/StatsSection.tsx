@@ -91,32 +91,30 @@ const StatsSection = () => {
   ];
 
   return (
-    <section id="stats" className="py-20 bg-[hsl(var(--kenetics-primary))] text-black">
+    <section id="stats" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <h2 className={`text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
             Our Impact
           </h2>
-          <p className={`text-lg max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
             Making a difference in healthcare, one patient at a time.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className={`text-center ${
+              className={`bg-white rounded-xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300 text-center ${
                 isVisible ? `animate-fade-in-up ${stat.delay}` : 'opacity-0'
               }`}
             >
-              <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/30 transition-all duration-300 hover:-translate-y-2">
-                <div className="text-4xl md:text-5xl font-bold mb-2 text-black">
-                  {stat.number.toLocaleString()}{stat.suffix}
-                </div>
-                <div className="text-lg font-medium">
-                  {stat.label}
-                </div>
+              <div className="text-4xl md:text-5xl font-bold mb-2 text-[hsl(var(--kenetics-primary))]">
+                {stat.number.toLocaleString()}{stat.suffix}
+              </div>
+              <div className="text-lg font-medium text-gray-700">
+                {stat.label}
               </div>
             </div>
           ))}

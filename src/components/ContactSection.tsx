@@ -43,14 +43,24 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-20" style={{ backgroundColor: '#E7FF6E' }}>
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-20 bg-white relative overflow-hidden">
+      {/* Floating Background Bubbles */}
+      <div className="floating-bubble floating-bubble-3"></div>
+      <div className="floating-bubble floating-bubble-4"></div>
+      <div className="floating-bubble floating-bubble-6"></div>
+      
+      {/* Rising Balloon Bubbles */}
+      <div className="balloon-bubble balloon-1"></div>
+      <div className="balloon-bubble balloon-3"></div>
+      <div className="balloon-bubble balloon-5"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className={`text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            Contact Us
+            Take the next step in driving change from the frontline
           </h2>
-          <p className={`text-lg text-gray-600 max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
-            Ready to start your journey to better health? Get in touch with our team.
+          <p className={`text-xl text-gray-600 max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
+            Ready to transform your physical therapy delivery? Get in touch with our team.
           </p>
         </div>
 

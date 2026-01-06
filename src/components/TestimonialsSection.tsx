@@ -34,25 +34,28 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      role: 'Knee Recovery Patient',
+      name: 'Dr. Sarah Johnson',
+      role: 'Physical Therapy Director, Regional Medical Center',
       image: 'https://images.unsplash.com/photo-1494790108755-2616b612b547?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      quote: 'KENETICS transformed my recovery journey. The AI-guided exercises were perfectly tailored to my needs, and I recovered faster than expected.',
-      rating: 5
+      quote: 'Feeling valued improves patient satisfaction and loyalty, and regular recognition, acknowledgment, and personalized care are linchpins of an attractive therapeutic experience. Kenetics has transformed how we deliver care.',
+      rating: 5,
+      metric: '30% reduction in recovery time and $2.4 million in savings annually'
     },
     {
       name: 'Michael Chen',
-      role: 'Back Pain Therapy',
+      role: 'Chief Rehabilitation Officer, Health System',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      quote: 'The convenience of at-home therapy combined with professional-grade AI guidance made all the difference in my treatment.',
-      rating: 5
+      quote: 'We now have a tool to help therapists do those important things like personalized exercise guidance and progress tracking well. The AI and automation deliver insights from other solutions, so it\'s easy to make decisions and take action.',
+      rating: 5,
+      metric: '25% Improvement in Patient Outcomes and $1.8M saved in only 12 months'
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Post-Surgery Rehabilitation',
+      name: 'Dr. Emily Rodriguez',
+      role: 'Associate Chief of Physical Therapy, Medical Center',
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-      quote: 'I was skeptical about remote therapy, but KENETICS proved that technology can deliver exceptional healthcare outcomes.',
-      rating: 5
+      quote: 'Incorporating technology to enhance therapy productivity, provide meaningful patient engagement, and reduce recovery time. Kenetics proved to be a time-saving solution, not just in terms of efficiency, but also in helping therapists prioritize interactions with their patients.',
+      rating: 5,
+      metric: 'Reduced Average Recovery Time by Almost 40%'
     }
   ];
 
@@ -65,46 +68,47 @@ const TestimonialsSection = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-[hsl(var(--kenetics-dark))] text-white">
-      <div className="container mx-auto px-4">
+    <section id="testimonials" className="py-20 bg-white relative overflow-hidden">
+      {/* Floating Background Bubbles */}
+      <div className="floating-bubble floating-bubble-1"></div>
+      <div className="floating-bubble floating-bubble-2"></div>
+      <div className="floating-bubble floating-bubble-5"></div>
+      
+      {/* Rising Balloon Bubbles */}
+      <div className="balloon-bubble balloon-2"></div>
+      <div className="balloon-bubble balloon-4"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            What Our Clients Say
+          <h2 className={`text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            Hear from Kenetics clients
           </h2>
-          <p className={`text-lg text-gray-300 max-w-3xl mx-auto ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
-            Real stories from real people who have transformed their lives with KENETICS.
-          </p>
         </div>
 
-        <div className={`max-w-4xl mx-auto ${isVisible ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
-          <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 md:p-12">
-            <div className="flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8">
-              <div className="flex-shrink-0">
-                <img
-                  src={testimonials[currentTestimonial].image}
-                  alt={testimonials[currentTestimonial].name}
-                  className="w-24 h-24 rounded-full object-cover border-4 border-[hsl(var(--kenetics-primary))]"
-                />
+        <div className={`max-w-5xl mx-auto ${isVisible ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
+          <div className="bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-200">
+            <div className="mb-6">
+              <div className="text-3xl md:text-4xl font-bold text-[hsl(var(--kenetics-primary))] mb-4">
+                {testimonials[currentTestimonial].metric}
               </div>
-              
-              <div className="flex-1 text-center md:text-left">
-                <div className="flex justify-center md:justify-start mb-4">
-                  {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                    <Star key={i} size={20} className="text-[hsl(var(--kenetics-primary))] fill-current" />
-                  ))}
+            </div>
+            
+            <blockquote className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed italic">
+              "{testimonials[currentTestimonial].quote}"
+            </blockquote>
+            
+            <div className="flex items-center space-x-4">
+              <img
+                src={testimonials[currentTestimonial].image}
+                alt={testimonials[currentTestimonial].name}
+                className="w-16 h-16 rounded-full object-cover"
+              />
+              <div>
+                <div className="font-bold text-[hsl(var(--kenetics-dark))] text-lg">
+                  {testimonials[currentTestimonial].name}
                 </div>
-                
-                <blockquote className="text-lg md:text-xl italic mb-6 leading-relaxed">
-                  "{testimonials[currentTestimonial].quote}"
-                </blockquote>
-                
-                <div>
-                  <div className="font-bold text-[hsl(var(--kenetics-primary))] text-lg">
-                    {testimonials[currentTestimonial].name}
-                  </div>
-                  <div className="text-gray-300">
-                    {testimonials[currentTestimonial].role}
-                  </div>
+                <div className="text-gray-600 text-sm">
+                  {testimonials[currentTestimonial].role}
                 </div>
               </div>
             </div>
@@ -113,10 +117,10 @@ const TestimonialsSection = () => {
             <div className="flex justify-center items-center space-x-4 mt-8">
               <button
                 onClick={prevTestimonial}
-                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+                className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeft size={20} />
+                <ChevronLeft size={20} className="text-gray-700" />
               </button>
               
               <div className="flex space-x-2">
@@ -127,7 +131,7 @@ const TestimonialsSection = () => {
                     className={`w-3 h-3 rounded-full transition-colors ${
                       index === currentTestimonial 
                         ? 'bg-[hsl(var(--kenetics-primary))]' 
-                        : 'bg-white/30'
+                        : 'bg-gray-300'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                   />
@@ -136,10 +140,10 @@ const TestimonialsSection = () => {
               
               <button
                 onClick={nextTestimonial}
-                className="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors"
+                className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-colors"
                 aria-label="Next testimonial"
               >
-                <ChevronRight size={20} />
+                <ChevronRight size={20} className="text-gray-700" />
               </button>
             </div>
           </div>

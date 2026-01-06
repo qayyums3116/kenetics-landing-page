@@ -69,7 +69,7 @@ const AboutSection: React.FC = () => {
     },
   ];
 
-  // Carousel content
+  // Carousel content - Our Story, Vision, and Mission
   const carouselContent = [
     {
       title: 'Our Story',
@@ -79,12 +79,12 @@ const AboutSection: React.FC = () => {
     {
       title: 'Our Vision',
       content:
-        "We are on a mission to revolutionize the way physical therapists interact with their patients. Our innovative service, offered through a smart device, allows patients to receive customized virtual guidance from their physical therapists while performing exercises at home. Our platform is easy to use, secure, and enables patients to stay connected to their healthcare providers from the comfort of their own homes.",
+        "We are on a mission to revolutionize the way physical therapists interact with their patients. Our innovative service, offered through a smart device, allows patients to receive customized virtual guidance from their physical therapists while performing exercises at home. Our platform is easy to use, secure, and enables patients to stay connected to their healthcare providers from the comfort of their own homes. We envision a future where quality physical therapy is accessible to everyone, everywhere.",
     },
     {
-      title: 'Our Technology',
+      title: 'Our Mission',
       content:
-        "We believe technology plays a crucial role in delivering the best possible experience for each patient. Our team of experts is always exploring innovative techniques to integrate the latest technologies. Our application provides a unique experience to each patient, using machine learning, artificial intelligence, language modeling, and augmented reality to ensure that every session is personalized for each individual. With our cutting-edge approach to physical therapy, we strive to provide our patients with results that exceed their expectations.",
+        "At Kenetics, we are pioneers in health technology, driven by a mission to enhance healthcare accessibility and inclusivity. We understand first-hand the challenges individuals face when they don't receive the care they need—whether due to age, location, economic constraints, or language barriers—and we strive to bridge these gaps. Our innovative service, delivered through a smart device, empowers underserved patients with personalized at-home physical therapy exercises. Leveraging machine learning, artificial intelligence, language modeling, and augmented reality, every session is uniquely tailored and secure, enabling real-time virtual guidance from their therapists.",
     },
   ];
 
@@ -108,203 +108,207 @@ const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20" style={{ backgroundColor: '#E7FF6E' }}>
-      <div className="container mx-auto px-4">
-        {/* Meet Kenetics Section */}
-        <div className="text-center mb-16">
-          <h2 className={`text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            Meet Kenetics
-          </h2>
-        </div>
-{/* Mission Section with Image */}
-<section
-  id="about"
-  className="py-20"
-  style={{ backgroundColor: '#E7FF6E' }}
->
-  <div className="max-w-6xl mx-auto mb-16">
-    {/* card container with subtle backdrop blur and rounded corners */}
-    <div
-      className={`bg-white bg-opacity-20 backdrop-blur-lg rounded-3xl p-8
-                  grid lg:grid-cols-2 gap-8 items-start transition-all duration-1000
-                  ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-    >
-
-      {/* IMAGE with an offset color “shadow” behind it */}
-      <div className="relative flex justify-center">
-        {/* colored offset layer */}
-        <div
-          className="absolute top-4 left-4 w-full h-full
-                     bg-[hsl(var(--kenetics-primary))] opacity-20
-                     rounded-xl"
-        />
-        <img
-          src="/lovable-uploads/bf8bd996-4d49-4ac1-b078-f2d68526fbdb.png"
-          alt="Kenetics AI Technology - Movement Analysis"
-          className="relative w-full max-w-[280px] h-auto object-cover
-                     rounded-xl shadow-2xl"
-        />
-      </div>
-
-      {/* TEXT */}
-      <div className="flex flex-col justify-center space-y-4">
-        <h3 className="text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))]">
-          Our Mission
-        </h3>
-        <h4 className="text-2xl md:text-3xl font-semibold text-[hsl(var(--kenetics-dark))]">
-          Get to Know Us
-        </h4>
-        <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
-       At Kenetics, we are pioneers in health technology, driven by a mission to enhance healthcare accessibility and inclusivity. We understand first-hand the challenges individuals face when they don’t receive the care they need—whether due to age, location, economic constraints, or language barriers—and we strive to bridge these gaps. Our innovative service, delivered through a smart device, empowers underserved patients with personalized at-home physical therapy exercises. Leveraging machine learning, artificial intelligence, language modeling, and augmented reality, every session is uniquely tailored and secure, enabling real-time virtual guidance from their therapists. With our cutting-edge approach, we revolutionize musculoskeletal injury care to deliver seamless, cost-effective, and empowering healing experiences that consistently exceed expectations.
-
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-        {/* Values Grid */}
-        <div className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 transition-all duration-1000 delay-600 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          {values.map((value, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 text-center group"
-            >
-              <div className="w-16 h-16 bg-[hsl(var(--kenetics-primary))] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <value.icon size={24} className="text-black" />
-              </div>
-              <h4 className="font-bold text-[hsl(var(--kenetics-dark))] mb-2 text-lg">
-                {value.title}
-              </h4>
-              <p className="text-gray-600 text-sm">
-                {value.description}
-              </p>
+    <section id="about" className="py-20 bg-white relative overflow-hidden">
+      {/* Floating Background Bubbles */}
+      <div className="floating-bubble floating-bubble-1"></div>
+      <div className="floating-bubble floating-bubble-2"></div>
+      <div className="floating-bubble floating-bubble-3"></div>
+      <div className="floating-bubble floating-bubble-4"></div>
+      
+      {/* Rising Balloon Bubbles */}
+      <div className="balloon-bubble balloon-1"></div>
+      <div className="balloon-bubble balloon-2"></div>
+      <div className="balloon-bubble balloon-3"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        {/* Mission Section with Image */}
+        <div className="max-w-6xl mx-auto mb-20">
+          <div
+            className={`bg-gray-50 rounded-2xl p-8 md:p-12
+                        grid lg:grid-cols-2 gap-12 items-center transition-all duration-1000
+                        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+          >
+            {/* IMAGE */}
+            <div className="relative flex justify-center order-2 lg:order-1">
+              <img
+                src="/lovable-uploads/bf8bd996-4d49-4ac1-b078-f2d68526fbdb.png"
+                alt="Kenetics AI Technology - Movement Analysis"
+                className="w-full max-w-md h-auto object-cover rounded-xl shadow-xl"
+              />
             </div>
-          ))}
-        </div>
 
-
-        {/* Innovative Capabilities */}
-        <div
-          className={`max-w-4xl mx-auto mb-16 transition-all duration-1000 delay-800
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">Innovative Capabilities</h3>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-            {capabilities.map((cap, idx) => (
-              <div key={idx}>
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-[hsl(var(--kenetics-dark))]">
-                    {cap.name}
-                  </span>
-                  <span className="text-sm font-bold text-[hsl(var(--kenetics-dark))]">
-                    {cap.percentage}%
-                  </span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div
-                    className="bg-[hsl(var(--kenetics-dark))] h-3 rounded-full transition-all duration-2000 ease-out"
-                    style={{
-                      width: isVisible ? `${cap.percentage}%` : '0%',
-                      transitionDelay: `${idx * 200 + 1000}ms`,
-                    }}
-                  />
-                </div>
+            {/* TEXT */}
+            <div className="flex flex-col justify-center space-y-6 order-1 lg:order-2">
+              <div>
+                <h2 className="text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">
+                  One connected platform for physical therapy
+                </h2>
+                <p className="text-xl text-gray-600 leading-relaxed">
+                  Kenetics integrates essential workflows for therapists and patients, saving time and standardizing best practices in at-home physical therapy delivery.
+                </p>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Our Impact */}
-        <div
-          className={`max-w-5xl mx-auto mb-16 transition-all duration-1000 delay-1000
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">Our Impact</h3>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { number: 500, label: 'Personalized Therapy Plans Created' },
-              { number: 800, label: 'Patients Benefiting from AI-driven Therapy' },
-              { number: 1200, label: 'Hours of Remote Support Provided' },
-              { number: 45, label: 'Skilled Experts & Healthcare Professionals' },
-            ].map((stat, idx) => {
-              const count = useCountUp(stat.number, isVisible, idx * 300 + 1200);
-              return (
-                <div key={idx} className="text-center">
-                  <div className="text-4xl font-bold mb-2">{count}</div>
-                  <p className="text-sm text-gray-600 leading-tight">{stat.label}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-        {/* Simple Attractive Kenetics Journey Carousel */}
-        <div className={`max-w-4xl mx-auto transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">
-              Kenetics Journey
-            </h3>
-            <p className="text-lg text-gray-600">
-              Empowering individuals through technology-driven healthcare solutions
-            </p>
-          </div>
-          
-          <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="h-80 flex items-center">
-              <div 
-                className="flex transition-all duration-700 ease-in-out"
-                style={{ transform: `translateX(-${currentSlide * 100}%)`, width: `${carouselContent.length * 100}%` }}
-              >
-                {carouselContent.map((slide, index) => (
-                  <div key={index} className="w-full flex-shrink-0 px-12 py-8 flex items-center justify-center">
-                    <div className="text-center max-w-2xl">
-                      <div className="inline-block mb-6">
-                        <h4 className="text-2xl font-bold text-[hsl(var(--kenetics-primary))] bg-[hsl(var(--kenetics-primary))]/10 px-6 py-3 rounded-full">
-                          {slide.title}
-                        </h4>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed text-lg">
-                        {slide.content}
-                      </p>
-                    </div>
-                  </div>
-                ))}
+              <div className="pt-4">
+                <h3 className="text-2xl font-semibold text-[hsl(var(--kenetics-dark))] mb-3">
+                  Our Mission
+                </h3>
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  At Kenetics, we are pioneers in health technology, driven by a mission to enhance healthcare accessibility and inclusivity. We understand first-hand the challenges individuals face when they don't receive the care they need—whether due to age, location, economic constraints, or language barriers—and we strive to bridge these gaps. Our innovative service, delivered through a smart device, empowers underserved patients with personalized at-home physical therapy exercises.
+                </p>
               </div>
             </div>
-            
-            {/* Navigation Buttons */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[hsl(var(--kenetics-primary))] text-black p-3 rounded-full hover:scale-110 transition-all duration-300 shadow-lg"
-            >
-              <ChevronLeft size={20} />
-            </button>
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[hsl(var(--kenetics-primary))] text-black p-3 rounded-full hover:scale-110 transition-all duration-300 shadow-lg"
-            >
-              <ChevronRight size={20} />
-            </button>
-            
-            {/* Indicators */}
-            <div className="flex justify-center py-6 space-x-3">
-              {carouselContent.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    currentSlide === index 
-                      ? 'bg-[hsl(var(--kenetics-primary))] scale-125' 
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                />
-              ))}
+          </div>
+        </div>
+
+
+         {/* Maximize Impact Section */}
+         <div className="max-w-6xl mx-auto mb-20">
+           <div className="text-center mb-12">
+             <h2 className="text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">
+               Maximize the impact of every therapy session
+             </h2>
+           </div>
+
+           {/* Three Key Benefits */}
+           <div className="grid md:grid-cols-3 gap-8 mb-16">
+             <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-[hsl(var(--kenetics-primary))] rounded-lg flex items-center justify-center mb-6">
+                 <Target size={28} className="text-black" />
+               </div>
+               <h3 className="text-xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">
+                 Save hours of administrative work
+               </h3>
+               <p className="text-gray-600 leading-relaxed">
+                 By centralizing and streamlining core therapy workflows, automating standard tasks, and surfacing timely patient insights, Kenetics helps therapists focus more on what matters most.
+               </p>
+             </div>
+
+             <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-[hsl(var(--kenetics-primary))] rounded-lg flex items-center justify-center mb-6">
+                 <Users size={28} className="text-black" />
+               </div>
+               <h3 className="text-xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">
+                 Unlock impactful patient engagement moments
+               </h3>
+               <p className="text-gray-600 leading-relaxed">
+                 Using AI, the Kenetics platform filters through the noise to surface the highest impact, purposeful therapy actions – actions proven to move the needle on patient engagement and recovery outcomes.
+               </p>
+             </div>
+
+             <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+               <div className="w-14 h-14 bg-[hsl(var(--kenetics-primary))] rounded-lg flex items-center justify-center mb-6">
+                 <Heart size={28} className="text-black" />
+               </div>
+               <h3 className="text-xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">
+                 Make it easier to track patient progress
+               </h3>
+               <p className="text-gray-600 leading-relaxed">
+                 Kenetics' integrated patient monitoring module makes it simple for therapists to plan and track therapy progress, facilitating proactive patient engagement and quick intervention when needed.
+               </p>
+             </div>
+           </div>
+         </div>
+
+         {/* Kenetics Journey Carousel - Our Story, Vision, Mission */}
+         <div className={`max-w-4xl mx-auto mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+           <div className="text-center mb-8">
+             <h3 className="text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">
+               Kenetics Journey
+             </h3>
+             <p className="text-lg text-gray-600">
+               Empowering individuals through technology-driven healthcare solutions
+             </p>
+           </div>
+           
+           <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+             <div className="h-96 flex items-center">
+               <div 
+                 className="flex transition-all duration-700 ease-in-out"
+                 style={{ transform: `translateX(-${currentSlide * 100}%)`, width: `${carouselContent.length * 100}%` }}
+               >
+                 {carouselContent.map((slide, index) => (
+                   <div key={index} className="w-full flex-shrink-0 px-12 py-8 flex items-center justify-center">
+                     <div className="text-center max-w-2xl">
+                       <div className="inline-block mb-6">
+                         <h4 className="text-2xl font-bold text-[hsl(var(--kenetics-primary))] bg-[hsl(var(--kenetics-primary))]/10 px-6 py-3 rounded-full">
+                           {slide.title}
+                         </h4>
+                       </div>
+                       <p className="text-gray-700 leading-relaxed text-lg">
+                         {slide.content}
+                       </p>
+                     </div>
+                   </div>
+                 ))}
+               </div>
+             </div>
+             
+             {/* Navigation Buttons */}
+             <button
+               onClick={prevSlide}
+               className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[hsl(var(--kenetics-primary))] text-black p-3 rounded-full hover:scale-110 transition-all duration-300 shadow-lg z-10"
+               aria-label="Previous slide"
+             >
+               <ChevronLeft size={20} />
+             </button>
+             <button
+               onClick={nextSlide}
+               className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[hsl(var(--kenetics-primary))] text-black p-3 rounded-full hover:scale-110 transition-all duration-300 shadow-lg z-10"
+               aria-label="Next slide"
+             >
+               <ChevronRight size={20} />
+             </button>
+             
+             {/* Indicators */}
+             <div className="flex justify-center py-6 space-x-3">
+               {carouselContent.map((_, index) => (
+                 <button
+                   key={index}
+                   onClick={() => setCurrentSlide(index)}
+                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                     currentSlide === index 
+                       ? 'bg-[hsl(var(--kenetics-primary))] scale-125' 
+                       : 'bg-gray-300 hover:bg-gray-400'
+                   }`}
+                   aria-label={`Go to slide ${index + 1}`}
+                 />
+               ))}
+             </div>
+          </div>
+        </div>
+
+        {/* Who We Help Section - Matching Laudio Style */}
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold text-[hsl(var(--kenetics-dark))] mb-4">
+              Who We Help
+            </h2>
+          </div>
+
+          {/* Who We Help Grid - Matching Laudio Layout */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">Physical Therapists</h3>
+              <p className="text-gray-600 text-lg">Streamline daily work and gain time for meaningful patient interactions</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">Rehabilitation Directors</h3>
+              <p className="text-gray-600 text-lg">Give therapists one platform to manage their patients efficiently</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">Healthcare Administrators</h3>
+              <p className="text-gray-600 text-lg">Standardize therapy best practices on every team</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">Chief Medical Officers</h3>
+              <p className="text-gray-600 text-lg">Operationalize world-class patient engagement and recovery strategies</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">Chief Operating Officers</h3>
+              <p className="text-gray-600 text-lg">Automate work and expand therapy capacity</p>
+            </div>
+            <div className="bg-white p-8 rounded-xl border border-gray-200 hover:shadow-lg transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-[hsl(var(--kenetics-dark))] mb-3">Chief Financial Officers</h3>
+              <p className="text-gray-600 text-lg">Improve outcomes while reducing operational costs</p>
             </div>
           </div>
         </div>

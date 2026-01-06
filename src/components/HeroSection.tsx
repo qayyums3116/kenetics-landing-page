@@ -1,49 +1,67 @@
 
-import React from 'react';
-import { ArrowRight, Play } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const HeroSection = () => {
-  const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
 
-  const scrollToProduct = () => {
-    navigate('/product');
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Updated gradient background for better logo visibility */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-indigo-600/10 animate-pulse"></div>
-      </div>
-
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            TRANSFORMING THE DELIVERY OF{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[hsl(var(--kenetics-primary))] to-blue-300">
-              AT HOME PHYSICAL THERAPY
-            </span>
+    <section id="hero" className="min-h-[85vh] flex items-center justify-center relative overflow-hidden bg-white">
+      {/* Floating Background Bubbles */}
+      <div className="floating-bubble floating-bubble-1"></div>
+      <div className="floating-bubble floating-bubble-2"></div>
+      <div className="floating-bubble floating-bubble-3"></div>
+      <div className="floating-bubble floating-bubble-4"></div>
+      <div className="floating-bubble floating-bubble-5"></div>
+      <div className="floating-bubble floating-bubble-6"></div>
+      
+      {/* Rising Balloon Bubbles */}
+      <div className="balloon-bubble balloon-1"></div>
+      <div className="balloon-bubble balloon-2"></div>
+      <div className="balloon-bubble balloon-3"></div>
+      <div className="balloon-bubble balloon-4"></div>
+      <div className="balloon-bubble balloon-5"></div>
+      
+      <div className="container mx-auto px-4 py-20 relative z-10">
+        <div className={`max-w-5xl mx-auto text-center transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[hsl(var(--kenetics-dark))] mb-6 leading-tight">
+            Help your{' '}
+            <span className="text-[hsl(var(--kenetics-primary))]">patients recover.</span>{' '}
+            Improve{' '}
+            <span className="text-[hsl(var(--kenetics-primary))]">your outcomes.</span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-            Revolutionary AI-powered physical therapy solutions that bring personalized care directly to your home
+          <p className="text-xl md:text-2xl text-gray-600 mb-10 leading-relaxed max-w-3xl mx-auto">
+            Kenetics is an AI-enhanced platform that streamlines physical therapy delivery and prioritizes high-impact patient care, driving large-scale improvements in recovery outcomes at healthcare systems.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button 
-              onClick={scrollToProduct}
-              className="group bg-[hsl(var(--kenetics-primary))] text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-[hsl(var(--kenetics-primary-dark))] transition-all duration-300 hover:scale-105 hover:shadow-xl flex items-center gap-2"
+              onClick={() => scrollToSection('contact')}
+              className="group bg-[hsl(var(--kenetics-primary))] text-black px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[hsl(var(--kenetics-primary-dark))] transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
-              Get Started
+              Request a Demo
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
-            </button>
-            
-            <button className="group flex items-center gap-3 text-white hover:text-[hsl(var(--kenetics-primary))] transition-colors duration-300">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-[hsl(var(--kenetics-primary))]/20 transition-all duration-300">
-                <Play size={16} className="ml-1" />
-              </div>
-              <span className="font-medium">Watch Demo</span>
             </button>
           </div>
         </div>
